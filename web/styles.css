@@ -1,0 +1,16 @@
+body{
+    background-color: black;
+    color: #fff;
+}
+article{
+    width: max-content;
+    border: 1px solid #fff;
+    padding: 5vw;
+    margin-bottom: 5vw;
+    display: inline-block;
+}
+img {
+    aspect-ratio: 2/3;
+    height: auto;
+    width: 200px;
+}

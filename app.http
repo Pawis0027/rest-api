@@ -1,0 +1,49 @@
+###RECUPERAR TODAS LAS PELICULAS
+GET http://localhost:1234/movies
+###RECUPERAR PELICULA POR ID
+GET http://localhost:1234/movies/5ad1a235-0d9c-410a-b32b-220d91689a08
+###RECUPERAR TODAS LAS EPLICULAS POR UN GÉNERO 
+GET http://localhost:1234/movies?genre=Sci-Fi
+###enviarr una nueva pelicula
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+  {
+    "title": "PAWIS",
+    "year": 2007,
+    "director": "Lu castelo",
+    "duration": 100,
+    "poster": "https://img.fruugo.com/product/7/41/14532417_max.jpg",
+    "genre": [
+      "Action",
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "rate": 10
+  }
+###enviarr una nueva pelicula
+POST http://localhost:1234/movies
+Content-Type: application/json
+
+  {
+    "title": "pirrin",
+    "year": 2010,
+    "director": "pawis",
+    "duration": 130,
+    "poster": "https://img.fruugo.com/product/7/41/14532417_max.jpg",
+    "genre": [
+      "Action",
+      "Adventure",
+      "Sci-Fi"
+    ],
+    "rate": 8.8
+  }
+
+###EDITAR PELICULA POR ID
+PATCH  http://localhost:1234/movies/dcdd0fad-a94c-4810-8acc-5f108d3b18c3
+Content-Type: application/json
+
+{
+  "title": "horacio come bananas",
+  "year": 1969
+}
