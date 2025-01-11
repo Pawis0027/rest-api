@@ -1,4 +1,5 @@
-const z = require("zod")
+import { z } from "zod"
+// const z = require("zod")
 const movieSchema = z.object({
     title: z.string({
         invalid_type_error: "el nombre de la pelicula tiene que ser un string",
@@ -21,7 +22,10 @@ function validateMovie(object){
 function validatePartialMovie(object){
     return movieSchema.partial().safeParse(object)
 }
-module.exports = {
-    validateMovie,
-    validatePartialMovie
-}
+export {validateMovie, validatePartialMovie}
+// exports.validateMovie = validateMovie
+// exports.validatePartialMovie = validatePartialMovie
+// module.exports = {
+//     validateMovie,
+//     validatePartialMovie
+// }

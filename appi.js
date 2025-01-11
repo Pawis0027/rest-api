@@ -1,15 +1,25 @@
-const express = require("express")
+import express, { json } from "express"
 const app = express()
 app.disable("x-powered-by")     
-app.use(express.json())
+app.use(json())
+// ---------------------experimental
+// import movies from "./movies.json" with { type: "json" }
+// ---------------------sicncrona y lenta (no recomendable)
+// import fs from "node:fs";
+// const movies = JSON.parse(fs.readFileSync("./movies.json", "utf-8"))
+// --------------------- nativa y rapida
+import { createRequire } from "node:module";
+const require = createRequire(import.meta.url);
 const movies = require("./movies.json")
-const crypto = require("node:crypto")
-const { error } = require("node:console")
-const {validateMovie} = require("./zod")
-const {validatePartialMovie} = require("./zod")
+// ---------------------------------------------
+import { randomUUID } from "node:crypto"
+import { assert, error } from "node:console"
+import { validateMovie } from "./zod.js"
+import { validatePartialMovie } from "./zod.js"
 const ACCEPTED_ORIGINS =[
     "http://localhost:8080",
-    "http://localhost:1234"
+    "http://localhost:1234",
+    "http://localhost:10000"
 ]
 app.use((req, res, next) => {
     const origin = req.header("origin");
@@ -50,7 +60,7 @@ app.post("/movies", (req,res) =>{
     const result = validateMovie(req.body) 
     if (result.error) return res.status(400).json({error: JSON.parse(result.error.message)})
     const newMovie = {
-        id: crypto.randomUUID(),
+        id: randomUUID(),
         ...result.data
     }
     movies.push(newMovie)

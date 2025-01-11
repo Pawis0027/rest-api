@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "pasando de git a render",
   "main": "appi.js",
+  "type": "module",
   "scripts": {
     "start": "node appi.js"
   },
