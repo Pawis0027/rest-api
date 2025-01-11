@@ -4,7 +4,7 @@
   "description": "pasando de git a render",
   "main": "appi.js",
   "scripts": {
-    "test": "test"
+    "start": "node appi.js"
   },
   "author": "Paolo Castelo",
   "license": "ISC",
