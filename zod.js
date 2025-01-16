@@ -16,13 +16,13 @@ const movieSchema = z.object({
         z.enum(["Action", "Adventure", "Sci-Fi"])
     ),
 })
-function validateMovie(object){
+export const validateMovie = (object)=>{
     return movieSchema.safeParse(object)
 }
-function validatePartialMovie(object){
+export const validatePartialMovie =(object) =>{
     return movieSchema.partial().safeParse(object)
 }
-export {validateMovie, validatePartialMovie}
+// export {validateMovie, validatePartialMovie}
 // exports.validateMovie = validateMovie
 // exports.validatePartialMovie = validatePartialMovie
 // module.exports = {
